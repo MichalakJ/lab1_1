@@ -46,7 +46,7 @@ public class OfferItem {
 		if (discount != null)
 			discountValue = discountValue.subtract(discount);
 
-		this.totalCost = product.getProductPrice()
+		this.totalCost = product.getProductPrice().getValue()
 				.multiply(new BigDecimal(quantity)).subtract(discountValue);
 	}
 

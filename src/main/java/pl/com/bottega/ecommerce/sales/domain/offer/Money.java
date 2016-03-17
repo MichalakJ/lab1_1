@@ -7,8 +7,9 @@ public class Money {
 	private BigDecimal value;
 	private String currency;
 	
-	public Money(){
-		
+	public Money(BigDecimal value, String currency){
+		this.value=value;
+		this.currency=currency;
 	}
 	
 	public BigDecimal getValue(){
@@ -22,6 +23,10 @@ public class Money {
 	}
 	public void setCurrency(String currency){
 		this.currency=currency;
+	}
+
+	public int compareTo(Money totalCost) {
+		return value.compareTo(totalCost.getValue());
 	}
 	
 }

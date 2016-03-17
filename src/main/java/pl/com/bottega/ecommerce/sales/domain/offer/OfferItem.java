@@ -34,9 +34,7 @@ public class OfferItem {
 		this(product, quantity, null, null);
 	}
 
-	public OfferItem(Product product, int quantity,
-			Money discount, String discountCause) {
-
+	public OfferItem(Product product, int quantity, Money discount, String discountCause) {
 
 		this.quantity = quantity;
 		this.discount.setDiscount(discount);
@@ -46,14 +44,15 @@ public class OfferItem {
 		if (discount != null)
 			discountValue = discountValue.subtract(discount.getValue());
 
-		this.totalCost = new Money(product.getProductPrice().getValue()
-				.multiply(new BigDecimal(quantity)).subtract(discountValue),product.getProductPrice().getCurrency());
+		this.totalCost = new Money(
+				product.getProductPrice().getValue().multiply(new BigDecimal(quantity)).subtract(discountValue),
+				product.getProductPrice().getCurrency());
 	}
 
-	public Product getProduct(){
+	public Product getProduct() {
 		return this.product;
 	}
-	
+
 	public Money getTotalCost() {
 		return totalCost;
 	}
@@ -66,7 +65,6 @@ public class OfferItem {
 		return discount;
 	}
 
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -75,16 +73,13 @@ public class OfferItem {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((discount.getDiscount() == null) ? 0 : discount.getDiscount().hashCode());
+		result = prime * result + ((discount.getDiscount() == null) ? 0 : discount.getDiscount().hashCode());
 		result = prime * result + ((product.getProductName() == null) ? 0 : product.getProductName().hashCode());
 		result = prime * result + ((product.getProductPrice() == null) ? 0 : product.getProductPrice().hashCode());
-		result = prime * result
-				+ ((product.getProductId() == null) ? 0 : product.getProductId().hashCode());
+		result = prime * result + ((product.getProductId() == null) ? 0 : product.getProductId().hashCode());
 		result = prime * result + ((product.getProductType() == null) ? 0 : product.getProductType().hashCode());
 		result = prime * result + quantity;
-		result = prime * result
-				+ ((totalCost == null) ? 0 : totalCost.hashCode());
+		result = prime * result + ((totalCost == null) ? 0 : totalCost.hashCode());
 		return result;
 	}
 

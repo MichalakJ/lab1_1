@@ -3,30 +3,33 @@ package pl.com.bottega.ecommerce.sales.domain.offer;
 import java.math.BigDecimal;
 
 public class Money {
-	
+
 	private BigDecimal value;
 	private String currency;
-	
-	public Money(BigDecimal value, String currency){
-		this.value=value;
-		this.currency=currency;
+
+	public Money(BigDecimal value, String currency) {
+		this.value = value;
+		this.currency = currency;
 	}
-	
-	public BigDecimal getValue(){
+
+	public BigDecimal getValue() {
 		return value;
 	}
-	public void setValue(BigDecimal value){
+
+	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
-	public String getCurrency(){
+
+	public String getCurrency() {
 		return currency;
 	}
-	public void setCurrency(String currency){
-		this.currency=currency;
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
 	public int compareTo(Money totalCost) {
 		return value.compareTo(totalCost.getValue());
 	}
-	
+
 }

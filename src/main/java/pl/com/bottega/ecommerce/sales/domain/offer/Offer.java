@@ -4,28 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Offer {
-	private List<OfferItem> availabeItems = new ArrayList<OfferItem>();
+	private List<OfferItem> items = new ArrayList<OfferItem>();
 
-	private List<OfferItem> unavailableItems = new ArrayList<OfferItem>();
 
-	public Offer(List<OfferItem> availabeItems, List<OfferItem> unavailableItems) {
-		this.availabeItems = availabeItems;
-		this.unavailableItems = unavailableItems;
+	public Offer(List<OfferItem> items) {
+		this.items=items;
+
 	}
 
 	public List<OfferItem> getAvailabeItems() {
-		return availabeItems;
+		return new ArrayList<OfferItem>();
+		//implement this
 	}
 
 	public List<OfferItem> getUnavailableItems() {
-		return unavailableItems;
+		return new ArrayList<OfferItem>();
+		//implement this
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((availabeItems == null) ? 0 : availabeItems.hashCode());
+		result = prime * result + ((getAvailabeItems() == null) ? 0 : getAvailabeItems().hashCode());
 		return result;
 	}
 
@@ -38,10 +39,10 @@ public class Offer {
 		if (getClass() != obj.getClass())
 			return false;
 		Offer other = (Offer) obj;
-		if (availabeItems == null) {
-			if (other.availabeItems != null)
+		if (getAvailabeItems() == null) {
+			if (other.getAvailabeItems() != null)
 				return false;
-		} else if (!availabeItems.equals(other.availabeItems))
+		} else if (!getAvailabeItems().equals(other.getAvailabeItems()))
 			return false;
 		return true;
 	}
@@ -54,10 +55,10 @@ public class Offer {
 	 * @return
 	 */
 	public boolean sameAs(Offer seenOffer, double delta) {
-		if (!(availabeItems.size() == seenOffer.availabeItems.size()))
+		if (!(getAvailabeItems().size() == seenOffer.getAvailabeItems().size()))
 			return false;
 
-		for (OfferItem item : availabeItems) {
+		for (OfferItem item : getAvailabeItems()) {
 			OfferItem sameItem = seenOffer.findItem(item.getProduct().getProductId());
 			if (sameItem == null)
 				return false;
@@ -69,7 +70,7 @@ public class Offer {
 	}
 
 	private OfferItem findItem(String productId) {
-		for (OfferItem item : availabeItems) {
+		for (OfferItem item : getAvailabeItems()) {
 			if (item.getProduct().getProductId().equals(productId))
 				return item;
 		}
